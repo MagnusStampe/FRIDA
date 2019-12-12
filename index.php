@@ -1,6 +1,10 @@
 <?php
     require_once(__DIR__.'/services/connect.php');
-    require_once(__DIR__.'/services/get-user.php');
+    //require_once(__DIR__.'/services/get-users-by-username.php');
+    require_once(__DIR__.'/services/create-user.php');
+    //include(__DIR__.'/services/create-user.php');
+    //include(__DIR__.'/services/create-city.php');
+    //include(__DIR__.'/services/check-city-by-id.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
