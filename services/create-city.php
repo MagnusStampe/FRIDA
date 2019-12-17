@@ -1,6 +1,4 @@
 <?php
-$cCityName = 'EliTown';
-
 $cQuery = 'INSERT INTO tcitycode (cCityName)
 VALUES (?)';
 $stmt = $pdo->prepare($cQuery);
