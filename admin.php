@@ -21,6 +21,7 @@ require_once(__DIR__ . '/services/connect.php');
         <a href="profil.php">Profil</a>
         <a href="recipes.php">Recipes</a>
         <a href="search-recipes.php">Search recipes</a>
+        <a href="admin.php">Admin</a>
     </section>
 
     <h2>Navigate to table</h2>
@@ -52,7 +53,7 @@ require_once(__DIR__ . '/services/connect.php');
     include_once('services/get-all-users.php');
     foreach($aAllUsers as $jUser) {
     ?>
-    <form action="services/update-user.php">
+    <form action="services/update-user.php" method="POST">
     <tr>
         <td>
             <?= $jUser->nUserID ?>
@@ -103,7 +104,7 @@ require_once(__DIR__ . '/services/connect.php');
 
     <h2 id="recipes">trecipe</h2>
     <?php include_once('services/get-recipe-count.php'); ?>
-    <p><?= $nRecipeCount ?> cities</p>
+    <p><?= $nRecipeCount ?> recipies</p>
     <table>
         <tr>
             <td>nRecipeID</td>
@@ -202,7 +203,7 @@ require_once(__DIR__ . '/services/connect.php');
         include_once('services/get-all-credit-cards.php');
         foreach($aAllCreditCards as $jCreditCard) {
         ?>
-        <form action="services/update-credit-card.php">
+        <form action="services/update-credit-card.php" method="POST">
         <tr>
             <td>
                 <?= $jCreditCard->nCreditCardID ?>
@@ -210,7 +211,7 @@ require_once(__DIR__ . '/services/connect.php');
             </td>
             <td><?= $jCreditCard->nUserID ?></td>
             <td><input name="txtIBAN" type="text" value="<?= $jCreditCard->cIBANcode ?>"></td>
-            <td><input name="txtExpiration" type="text" value="<?= $jCreditCard->cExpirationDate ?>"></td>
+            <td><input name="txtExpire" type="text" value="<?= $jCreditCard->cExpirationDate ?>"></td>
             <td><input name="txtCCV" type="text" value="<?= $jCreditCard->cCCV ?>"></td>
             <td><input name="txtMoneySpent" type="text" value="<?= $jCreditCard->nTotalMoneySpent ?>"></td>
             <td><button>Update</button></td></tr>
