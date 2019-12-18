@@ -12,5 +12,4 @@ $cQuery = 'DELETE FROM tfridge
 $stmt = $pdo->prepare($cQuery);
 $stmt->execute(['id' => $UserID, 'cId' => $ConvID]);
 
-
 header('Location: ../profil.php');

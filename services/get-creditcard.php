@@ -15,13 +15,19 @@ $cards = $stmt->fetchAll();
 
 $ccNr = 1;
 foreach ($cards as $card) {
-    echo "
-    <h2>Creditcard $ccNr</h2>
-    <h3>IBAN Code: $card->cIBANcode</h3>
-    <h3>Expiration date: $card->cExpirationDate</h3>
-    <h3>CCV: $card->cCCV</h3>
-    <h3>Total Amount: $card->nTotalMoneySpent kr.</h3> 
-    <br>";
-
+    ?>
+    <h2>Creditcard <?= $ccNr ?></h2>
+    <h3>IBAN Code: <?= $card->cIBANcode ?></h3>
+    <h3>Expiration date: <?= $card->cExpirationDate ?></h3>
+    <h3>CCV: <?= $card->cCCV ?></h3>
+    <h3>Total Amount: <?= $card->nTotalMoneySpent ?> kr.</h3>
+    <form action="services/create-payment.php">
+    <p>Make payment</p>
+    <input name="id" type="hidden" value="<?= $card->nCreditCardID ?>">
+    <input name="amount" type="text" placeholder="Amount">
+    <button>Pay</button>
+    </form>
+    <br>
+    <?php
     $ccNr++;
 }

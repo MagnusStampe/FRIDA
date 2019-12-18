@@ -25,10 +25,29 @@ require_once(__DIR__ . '/services/connect.php');
         <a href="search-recipes.php">Search recipes</a>
         <a href="admin.php">Admin</a>
     </section>
+    <h2>Login</h2>
     <form action="" method="post">
         <input type="text" name="txtusername" id="" placeholder="Username" value="">
         <input type="password" name="txtpassword" id="" placeholder="Password" value="">
         <button type="submit">Login</button>
+    </form>
+    <h2>Create user</h2>
+    <form action="services/create-user.php" method="POST">
+        <h3>Profile info</h3>
+        <input name="username" type="text" placeholder="Username" required>
+        <input name="name" type="text" placeholder="Firstname" required>
+        <input name="surname" type="text" placeholder="Surname" required>
+        <input name="email" type="text" placeholder="Email" required>
+        <input name="password" type="text" placeholder="Password" required>
+        <input name="phone" type="text" placeholder="Phone number" required>
+        <h3>Home details</h3>
+        <input name="address" type="text" placeholder="Address" required>
+        <input name="city" type="text" placeholder="City" required>
+        <h3>Credit card</h3>
+        <input name="ccv" type="text" placeholder="CVV" required>
+        <input name="iban" type="text" placeholder="IBAN code" required>
+        <input name="expire" type="text" placeholder="Expiration date" required>
+        <br><button>Create</button>
     </form>
 
 </body>

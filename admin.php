@@ -15,7 +15,6 @@ require_once(__DIR__ . '/services/connect.php');
 </head>
 
 <body>
-
     <section>
         <a href="index.php">Login</a>
         <a href="profil.php">Profil</a>
@@ -32,6 +31,9 @@ require_once(__DIR__ . '/services/connect.php');
     <a href="#types">Types</a><br>
     <a href="#credit_cards">Credit cards</a><br>
     
+    <h3>Force monthly payment for all users (100kr)</h3>
+    <a href="services/create-payment-for-all.php">Force payment</a>
+
     <h2 id="users">tuser</h2>
     <?php include_once('services/get-user-count.php'); ?>
     <p><?= $nUserCount ?> users</p>
@@ -57,7 +59,7 @@ require_once(__DIR__ . '/services/connect.php');
     <tr>
         <td>
             <?= $jUser->nUserID ?>
-            <input name="id" type="hidden" value="<?= $jUser->cUserID ?>">
+            <input name="id" type="hidden" value="<?= $jUser->nUserID ?>">
         </td>
         <td><input name="username" type="text" value="<?= $jUser->cUsername ?>"></td>
         <td><input name="name" type="text" value="<?= $jUser->cName ?>"></td>
@@ -213,7 +215,7 @@ require_once(__DIR__ . '/services/connect.php');
             <td><input name="txtIBAN" type="text" value="<?= $jCreditCard->cIBANcode ?>"></td>
             <td><input name="txtExpire" type="text" value="<?= $jCreditCard->cExpirationDate ?>"></td>
             <td><input name="txtCCV" type="text" value="<?= $jCreditCard->cCCV ?>"></td>
-            <td><input name="txtMoneySpent" type="text" value="<?= $jCreditCard->nTotalMoneySpent ?>"></td>
+            <td><?= $jCreditCard->nTotalMoneySpent ?></td>
             <td><button>Update</button></td></tr>
         </form>
         <?php

@@ -1,25 +1,36 @@
 <?php
-$cUsername = 'Ellioii';
-$cPassword = 'IamNo0b';
-$cEmail = 'resdfss@rkghrump.us';
-$cAddress = 'Ther n´ here';
-$cCity = 'Merica';
-$cCCV = '123';
-$cIBAN = 'DK212344442112';
-$nExpirationDate = 1234;
+require_once(__DIR__ . '/connect.php');
 
-// $cQuery = 'INSERT INTO tuser (cUsername, cPassword, cEmail, cAddress, nCityID)
-// VALUES (?,?,?,?,?)';
-$cQuery  = 'CALL createNewUser(?,?,?,?,?,?,?,?)';
+$cUsername = $_POST['username'];
+$cName = $_POST['name'];
+$cSurname = $_POST['surname'];
+$cPassword = $_POST['password'];
+$cEmail = $_POST['email'];
+$cPhonenumber = $_POST['phone'];
+$cAddress = $_POST['address'];
+$cCity = $_POST['city'];
+$cCCV = $_POST['ccv'];
+$cIBAN = $_POST['iban'];
+$nExpirationDate = $_POST['expire'];
+
+$cQuery  = 'CALL createNewUser(?,?,?,?,?,?,?,?,?,?,?)';
 $stmt = $pdo->prepare($cQuery);
 $ok = $stmt->execute([
     $cUsername,
+    $cName,
+    $cSurname,
     $cPassword,
     $cEmail,
+    $cPhonenumber,
     $cAddress,
     $cCity,
     $cCCV,
     $cIBAN,
     $nExpirationDate
 ]);
-var_dump($ok);
+
+if($ok) {
+    header('Location: ../index.php');
+} else {
+    echo 'ERROR: Try new username and/or email';
+}
