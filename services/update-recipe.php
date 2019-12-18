@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/connect.php');
 
-$nRecipeID = 1;
+$nRecipeID = $_GET['reID'];
 
 
 $name = $_POST['txtName'];

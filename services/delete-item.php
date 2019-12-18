@@ -1,9 +1,10 @@
 <?php
+session_start();
 
 require_once(__DIR__ . '/connect.php');
 
-$UserID = 1;
-$ConvID = 1;
+$UserID = $_SESSION['userID'];
+$ConvID = $_GET['convid'];
 
 $cQuery = 'DELETE FROM tfridge 
            WHERE tfridge.nUserID = :id 

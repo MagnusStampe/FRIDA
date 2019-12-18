@@ -1,12 +1,10 @@
-
-<form action=""></form>
-<a href="http://"></a>
 <?php
 
 echo '<h2>My fridge</h2>';
 
 
-$cQuery = 'SELECT tconversion.cName, 
+$cQuery = 'SELECT tconversion.cName,
+            tconversion.nConvID, 
             tfridge.nValue, 
             tconversion.cUnit, 
             ttype.cName 
@@ -23,9 +21,10 @@ $stmt->execute(['id' => $UserID]);
 $items = $stmt->fetchAll();
 
 foreach ($items as $item) {
+
     echo '<section>
-            <h4>Category: ' . $item->cTypename . '</h4>
-            <h3>' . $item->cName . ' ' . $item->nValue . ' ' . $item->cUnit . '</h3>
-            <a href="item.php">Edit</a>
-        </section>';
+    <h4>Category: ' . $item->cTypename . '</h4>
+    <h3>' . $item->cName . ' ' . $item->nValue . ' ' . $item->cUnit . '</h3>
+    <a href="item.php?convid='.$item->nConvID.'">Edit</a>
+    </section>';
 }

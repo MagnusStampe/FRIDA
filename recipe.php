@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/services/connect.php');
 
-$nRecipeID = 1;
+$nRecipeID = $_GET['reID'];
 
 
 
@@ -28,12 +28,12 @@ $recipe = $stmt->fetch();
 <body>
 
     <section>
-        <form action="services/update-recipe.php" method="post">
+        <form action="services/update-recipe.php?reID=<?php $nRecipeID ?>" method="post">
             <input type="text" name="txtName" id="" value="<?php echo $recipe->cName ?>">
             <textarea name="txtDescription" id="" cols="50" rows="20"><?php echo $recipe->cDescription ?></textarea>
             <input type="submit" name="submit" value="Update">
         </form>
-        <form action="services/delete-recipe.php" method="POST">
+        <form action="services/delete-recipe.php?reID=<?php $nRecipeID ?>" method="POST">
             <input type="submit" name="deleteBtn" value="Delete">
         </form>
     </section>

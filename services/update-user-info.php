@@ -1,6 +1,10 @@
 <?php
 
-require_once(__DIR__ . '/connect.php');
+session_start();
+
+require_once(__DIR__ . '/services/connect.php');
+
+$UserID = $_SESSION['userID'];
 
 $name = $_POST['txtName'];
 $surname = $_POST['txtSurname'];
@@ -13,7 +17,6 @@ if (isset($_POST['txtCancelDate'])) {
     $cancelDate = $_POST['txtCancelDate'];
 }
 $totalAmount = $_POST['txtTotalAmount'];
-$UserID = 1;
 
 $cQuery = 'UPDATE tuser, tCitycode SET 
 cName = :name, 
