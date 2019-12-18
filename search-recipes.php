@@ -33,7 +33,8 @@ require_once(__DIR__ . '/services/connect.php');
     <h2>Search results</h2>
     <?php
     include(__DIR__.'/services/get-recipe-search-results.php');
-    foreach($aRecipes as $jRecipe) {
+    if(isset($aRecipes)) {
+        foreach($aRecipes as $jRecipe) {
         ?>
             <h3><?= $jRecipe->cName ?></h3>
             <div><?= $jRecipe->cDescription ?></div>
@@ -47,6 +48,7 @@ require_once(__DIR__ . '/services/connect.php');
                 ?>
             </ol>
         <?php
+        }
     }
     ?>
     </section>
