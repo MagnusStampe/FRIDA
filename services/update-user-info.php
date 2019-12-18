@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once(__DIR__ . '/services/connect.php');
+require_once(__DIR__ . '/connect.php');
 
 $UserID = $_SESSION['userID'];
 
