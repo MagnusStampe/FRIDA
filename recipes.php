@@ -33,6 +33,18 @@ require_once(__DIR__ . '/services/connect.php');
                     <h1><?php echo $recipe->cName ?></h1>
                     <p><?php echo $recipe->cDescription ?></p>
                     <a href="recipe.php">Edit</a>
+                    <h3>Ingredients</h3>
+                    <ol>
+                    <?php
+                    $cRecipeID =  $recipe->nRecipeID;
+                    include('services/get-recipe-ingredients.php');
+                    foreach($aRecipeIngredients as $jIngredient) {
+                        ?>
+                            <li><?= $jIngredient->cName.' '.$jIngredient->nValue.' '.$jIngredient->cUnit?></li>
+                        <?php
+                    }
+                    ?>
+                    </ol>
                 </section>
             </div>
         <?php } ?>

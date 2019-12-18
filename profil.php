@@ -26,6 +26,7 @@ $user = $stmt->fetch();
         <a href="index.php">Login</a>
         <a href="profil.php">Profil</a>
         <a href="recipes.php">Recipes</a>
+        <a href="search-recipes.php">Search recipes</a>
     </section>
     <section>
         <?php require_once(__DIR__ . '/services/get-user-info.php'); ?>

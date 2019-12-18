@@ -8,8 +8,8 @@ $cCCV = '123';
 $cIBAN = 'DK212344442112';
 $nExpirationDate = 1234;
 
-$cQuery = 'INSERT INTO tuser (cUsername, cPassword, cEmail, cAddress, nCityID)
-VALUES (?,?,?,?,?)';
+// $cQuery = 'INSERT INTO tuser (cUsername, cPassword, cEmail, cAddress, nCityID)
+// VALUES (?,?,?,?,?)';
 $cQuery  = 'CALL createNewUser(?,?,?,?,?,?,?,?)';
 $stmt = $pdo->prepare($cQuery);
 $ok = $stmt->execute([

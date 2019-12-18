@@ -34,6 +34,7 @@ if ($_POST) {
         <a href="index.php">Login</a>
         <a href="profil.php">Profil</a>
         <a href="recipes.php">Recipes</a>
+        <a href="search-recipes.php">Search recipes</a>
     </section>
     <form action="" method="post">
         <input type="text" name="username" id="" placeholder="Username" value="Brogen21">
