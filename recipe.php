@@ -28,7 +28,7 @@ $recipe = $stmt->fetch();
 <body>
 
     <section>
-        <form action="services/update-recipe.php?reID=<?php $nRecipeID ?>" method="post">
+        <form action="services/update-recipe.php?reID=<?php echo $recipe->nRecipeID ?>" method="post">
             <input type="text" name="txtName" id="" value="<?php echo $recipe->cName ?>">
             <textarea name="txtDescription" id="" cols="50" rows="20"><?php echo $recipe->cDescription ?></textarea>
             <input type="submit" name="submit" value="Update">

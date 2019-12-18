@@ -8,16 +8,16 @@ $cName = $_POST['txtName'];
 $cUnit = $_POST['txtUnit'];
 $cTypeID = $_POST['txtType'];
 $UserID = $_SESSION['userID'];
-$cCity = $_POST['txtAmount'];
+$nAmount = $_POST['txtAmount'];
 
-$cQuery  = 'CALL insertNewConversionItemAndType(?,?,?,?,?)';
+$cQuery  = 'CALL insertNew(?,?,?,?,?)';
 $stmt = $pdo->prepare($cQuery);
 $ok = $stmt->execute([
+    $cTypeID,
     $cName,
     $cUnit,
-    $cTypeID,
     $UserID,
-    $cCity,
+    $nAmount
 ]);
 
 if($ok) {
