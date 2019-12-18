@@ -21,6 +21,8 @@ require_once(__DIR__ . '/services/connect.php');
         <a href="recipes.php">Recipes</a>
         <a href="search-recipes.php">Search recipes</a>
         <a href="admin.php">Admin</a>
+        <a href="services/logout.php">Logout</a>
+
     </section>
 
     <h2>Navigate to table</h2>

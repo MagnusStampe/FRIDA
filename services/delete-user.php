@@ -1,9 +1,10 @@
 <?php
 
+session_start();
+
 require_once(__DIR__ . '/connect.php');
 
-$UserID = 3;
-
+$UserID = $_SESSION['userID'];
 
 $cQuery = 'DELETE FROM tuser WHERE nUserID = :id';
 $stmt = $pdo->prepare($cQuery);
