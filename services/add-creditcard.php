@@ -1,8 +1,10 @@
 <?php 
 
+session_start();
+
 require_once(__DIR__ . '/connect.php');
 
-$UserID = 1;
+$UserID = $_SESSION['userID'];
 
 $IBANcode = $_POST['txtIBANcode'];
 $expDate = $_POST['txtExpDate'];
