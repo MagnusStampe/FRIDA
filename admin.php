@@ -123,10 +123,11 @@ require_once(__DIR__ . '/services/connect.php');
         <tr>
             <td>
                 <?= $jRecipe->nRecipeID ?>
-                <input name="nID" type="hidden" value="<?= $jRecipe->nRecipeID ?>">
+                <input name="reID" type="hidden" value="<?= $jRecipe->nRecipeID ?>">
+                <input name="admin" type="hidden" value="true">
             </td>
             <td><input name="txtName" type="text" value="<?= $jRecipe->cName ?>"></td>
-            <td><input name="txtName" type="textarea" value="<?= $jRecipe->cDescription ?>"></td>
+            <td><input name="txtDescription" type="text" value="<?= $jRecipe->cDescription ?>"></td>
             <td><button>Update</button></td></tr>
         </form>
         <?php

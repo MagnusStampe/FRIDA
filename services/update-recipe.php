@@ -3,11 +3,8 @@
 require_once(__DIR__ . '/connect.php');
 
 $nRecipeID = $_GET['reID'];
-
-
-$name = $_POST['txtName'];
-$description = $_POST['txtDescription'];
-
+$name = $_GET['txtName'];
+$description = $_GET['txtDescription'];
 
 $cQuery = 'UPDATE trecipe SET 
 cName = :name, 
@@ -20,5 +17,8 @@ $stmt->bindValue(":description", $description, PDO::PARAM_STR);
 $stmt->bindValue(":id", $nRecipeID, PDO::PARAM_STR);
 $stmt->execute();
 
-
+if(isset($_GET['admin'])) {
+    header('Location: ../admin.php#recipes');
+    exit;
+}
 header('Location: ../recipes.php');
