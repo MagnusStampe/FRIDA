@@ -33,6 +33,3 @@
 
     <input type="submit" name="submit" value="Update">
 </form>
-<form action="services/delete-user.php" method="POST">
-    <input type="submit" value="Delete">
-</form>
