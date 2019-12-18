@@ -33,7 +33,7 @@ require_once(__DIR__ . '/services/connect.php');
                 <section>
                     <h1><?php echo $recipe->cName ?></h1>
                     <p><?php echo $recipe->cDescription ?></p>
-                    <a href="recipe.php">Edit</a>
+                    <a href="recipe.php?reID=<?php $nRecipeID ?>">Edit</a>
                     <h3>Ingredients</h3>
                     <ol>
                     <?php

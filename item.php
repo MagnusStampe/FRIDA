@@ -1,12 +1,13 @@
 <?php
 
+session_start();
+
 require_once(__DIR__ . '/services/connect.php');
 
-$UserID = 1;
-$ConvID = 1;
+$UserID = $_SESSION['userID'];
+$ConvID = $_GET['convid'];
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,12 +44,12 @@ $ConvID = 1;
     $item = $stmt->fetch();
 
     echo "<div>
-        <form action='services/update-item.php' method='post'>
+        <form action='services/update-item.php?convid=$ConvID' method='post'>
             <h4>Name</h4><input type='text' name='txtName' id='' value='$item->cName'>
             <h4>Value</h4><input type='text' name='txtValue' id='' value='$item->nValue'>
             <input type='submit' value='Update'>
         </form>
-        <form action='services/delete-item.php' method='post'>
+        <form action='services/delete-item.php?convid=$ConvID' method='post'>
             <input type='submit' value='Delete'>
         </form>
       </div>"; ?>
