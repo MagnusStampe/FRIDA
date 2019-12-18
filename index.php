@@ -59,7 +59,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $users = $stmt->fetchAll();
         
         foreach($users as $user) {
-            echo 'diller';
             if ($user->cUsername == $username && $user->cPassword == $password) {
                 
                 $_SESSION['userID'] = $user->nUserID;
