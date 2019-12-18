@@ -5,10 +5,6 @@ require_once(__DIR__ . '/services/connect.php');
 $UserID = 1;
 $ConvID = 1;
 
-
-
-
-
 ?>
 
 
@@ -27,16 +23,33 @@ $ConvID = 1;
 
     <section>
 
-    <?php $cQuery = 'SELECT * FROM tfridge INNER JOIN tconversion ON tfridge.nConvID=tconversion.nConvID WHERE tfridge.nUserID = :id AND tconversion.nConvID = :cId';
+    <?php
+    
+    $cQuery = 'SELECT tconversion.cName, 
+               tfridge.nValue, 
+               tconversion.cUnit, 
+               ttype.cName 
+               AS cTypename 
+               FROM tfridge 
+               INNER JOIN tconversion 
+               ON tfridge.nConvID=tconversion.nConvID 
+               INNER JOIN ttype 
+               ON tconversion.nTypeID=ttype.nTypeID 
+               WHERE nUserID = :id 
+               AND tconversion.nConvID = :cId';
+    
     $stmt = $pdo->prepare($cQuery);
     $stmt->execute(['id' => $UserID, 'cId' => $ConvID]);
     $item = $stmt->fetch();
 
     echo "<div>
-        <form action='' method='post'>
-            <input type='text' name='' id='' value='$item->cName'>
-            <input type='text' name='' id='' value='$item->nValue'>
+        <form action='services/update-item.php' method='post'>
+            <h4>Name</h4><input type='text' name='txtName' id='' value='$item->cName'>
+            <h4>Value</h4><input type='text' name='txtValue' id='' value='$item->nValue'>
             <input type='submit' value='Update'>
+        </form>
+        <form action='services/delete-item.php' method='post'>
+            <input type='submit' value='Delete'>
         </form>
       </div>"; ?>
         

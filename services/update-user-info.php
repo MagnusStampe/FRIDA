@@ -25,7 +25,8 @@ cPhonenumber = :phone,
 dJoinDate= :joinDate, 
 dCancelDate= :cancelDate, 
 nTotalAmount = :totalAmount 
-WHERE tuser.nUserID = :id AND tuser.nCityID = tCitycode.nCityID';
+WHERE tuser.nUserID = :id 
+AND tuser.nCityID = tCitycode.nCityID';
 
 $stmt = $pdo->prepare($cQuery);
 $stmt->bindValue(":name", $name, PDO::PARAM_STR);

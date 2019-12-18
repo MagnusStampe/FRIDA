@@ -1,8 +1,10 @@
 <?php
 
+session_start();
+
 require_once(__DIR__ . '/services/connect.php');
 
-$UserID = 1;
+$UserID = $_SESSION['userID'];
 
 $cQuery = 'SELECT * FROM tuser, tCitycode WHERE tuser.nUserID = :id AND tuser.nCityID = tCitycode.nCityID';
 $stmt = $pdo->prepare($cQuery);
@@ -36,6 +38,9 @@ $user = $stmt->fetch();
     <section>
         <?php require_once(__DIR__ . '/services/get-users-fridge.php'); ?>
     </section>
+    <form action="services/delete-user.php" method="POST">
+    <input type="submit" value="Delete">
+</form>
 </body>
 
 </html>
