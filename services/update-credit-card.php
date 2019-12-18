@@ -1,11 +1,11 @@
 <?php
 require_once(__DIR__ . '/connect.php');
 
-$nID = $_GET['nID'];
-$cIBAN = $_GET['txtIBAN'];
-$cCCV = $_GET['txtCCV'];
-$cExpirationDate = $_GET['txtExpire'];
-$cTotalMoneySpent = $_GET['txtMoneySpent'];
+$nID = $_POST['nID'];
+$cIBAN = $_POST['txtIBAN'];
+$cCCV = $_POST['txtCCV'];
+$cExpirationDate = $_POST['txtExpire'];
+$cTotalMoneySpent = $_POST['txtMoneySpent'];
 
 $cQuery = 'UPDATE tcreditcard
 SET cIBANcode = :IBAN,

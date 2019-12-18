@@ -6,7 +6,7 @@ $cName = $_GET['txtName'];
 
 
 $cQuery = 'UPDATE ttype
-SET cName = :name,
+SET cName = :name
 WHERE nTypeID = :id';
 
 $stmt = $pdo->prepare($cQuery);
