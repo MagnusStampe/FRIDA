@@ -43,8 +43,8 @@ $user = $stmt->fetch();
         <?php require_once(__DIR__ . '/services/get-users-fridge.php'); ?>
     </section>
     <form action="services/delete-user.php" method="POST">
-    <input type="submit" value="Delete">
-</form>
+        <input type="submit" value="Delete">
+    </form>
 </body>
 
 </html>
