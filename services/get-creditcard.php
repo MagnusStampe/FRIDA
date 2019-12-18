@@ -1,5 +1,5 @@
 <h4>Add Creditcard</h4>
-<form action="services/add-creditcard.php" method="POST">
+<form action="services/create-creditcard.php" method="POST">
     <input type="text" name="txtIBANcode" id="" placeholder="IBAN Code">
     <input type="text" name="txtExpDate" id="" placeholder="Exp Date">
     <input type="text" name="txtCvv" id="" placeholder="CCV">
