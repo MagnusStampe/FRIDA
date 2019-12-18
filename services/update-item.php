@@ -14,7 +14,8 @@ $cQuery = 'UPDATE tfridge, tconversion
            SET tconversion.cName = :name, 
            tfridge.nValue = :value 
            WHERE tfridge.nUserID = :id 
-           AND tfridge.nConvID = :cId';
+           AND tfridge.nConvID = :cId
+           AND tfridge.nConvID = tconversion.nConvID';
 
 $stmt = $pdo->prepare($cQuery);
 $stmt->bindValue(":name", $name, PDO::PARAM_STR);

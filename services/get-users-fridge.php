@@ -2,6 +2,17 @@
 
 echo '<h2>My fridge</h2>';
 
+?>
+
+<form action="services/create-item.php" method="post">
+    <input type="text" name="txtName" placeholder="Name">
+    <input type="text" name="txtUnit" placeholder="Unit">
+    <input type="text" name="txtType" placeholder="Type">
+    <input type="text" name="txtAmount" placeholder="Amount">
+    <input type="submit" value="Add">
+</form>
+
+<?php
 
 $cQuery = 'SELECT tconversion.cName,
             tconversion.nConvID, 
